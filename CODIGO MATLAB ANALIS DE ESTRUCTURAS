@@ -1,0 +1,25 @@
+% Definir las matrices de entrada
+A = [0,0,0,-3/5,-5/13,0;0,0,0,-4/5,-12/13,0;1,0,0,3/5,0,0;0,1,0,4/5,0,-1;0,0,1,0,5/13,0;0,0,0,0,12/13,1];
+B = [-48;0;0;0;0;0];
+
+% Obtener las dimensiones de las matrices
+[m, n] = size(A);
+[p, q] = size(B);
+
+% Verificar si las dimensiones son adecuadas para la multiplicación
+if n ~= p
+    error('Las dimensiones de las matrices no son compatibles para la multiplicación.');
+end
+
+% Inicializar la matriz de resultado
+C = zeros(m, q);
+
+% Calcular la matriz inversa de A
+A_inv = inv(A);
+
+% Multiplicar la matriz B por la matriz inversa de A
+C = A_inv * B;
+
+% Imprimir el resultado
+disp('El resultado de la multiplicación es:');
+disp(C);
